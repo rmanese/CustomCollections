@@ -83,13 +83,23 @@ class CollectionDetailVC: UIViewController, UITableViewDataSource, UITableViewDe
         return ids
     }
 
+    func totalQuantity(product: Product) -> Int {
+        var quantity = 0
+        for variant in product.variants {
+            quantity += variant.inventoryQuantity
+        }
+        return quantity
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.collectsArray.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = self.productsArray[indexPath.row].title
+        let product = productsArray[indexPath.row]
+        let quantity = totalQuantity(product: product)
+        cell.textLabel?.text = "\(self.productsArray[indexPath.row].title) (\(quantity) left)"
         return cell
     }
 

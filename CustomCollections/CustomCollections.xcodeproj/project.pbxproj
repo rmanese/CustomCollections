@@ -17,6 +17,7 @@
 		D2C7F20A223DB17D0051752B /* Collect.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7F209223DB17D0051752B /* Collect.swift */; };
 		D2C7F20C223DB9000051752B /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7F20B223DB9000051752B /* Product.swift */; };
 		D2C7F20E223DB9080051752B /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7F20D223DB9080051752B /* Products.swift */; };
+		D2C7F210223DBEFE0051752B /* Variant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7F20F223DBEFE0051752B /* Variant.swift */; };
 		D2EF025B223D667600A5A530 /* CustomCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EF025A223D667600A5A530 /* CustomCollections.swift */; };
 		D2EF025D223D672500A5A530 /* CustomCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EF025C223D672500A5A530 /* CustomCollection.swift */; };
 /* End PBXBuildFile section */
@@ -34,6 +35,7 @@
 		D2C7F209223DB17D0051752B /* Collect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collect.swift; sourceTree = "<group>"; };
 		D2C7F20B223DB9000051752B /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		D2C7F20D223DB9080051752B /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
+		D2C7F20F223DBEFE0051752B /* Variant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Variant.swift; sourceTree = "<group>"; };
 		D2EF025A223D667600A5A530 /* CustomCollections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollections.swift; sourceTree = "<group>"; };
 		D2EF025C223D672500A5A530 /* CustomCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,6 +115,7 @@
 				D2C7F209223DB17D0051752B /* Collect.swift */,
 				D2C7F20B223DB9000051752B /* Product.swift */,
 				D2C7F20D223DB9080051752B /* Products.swift */,
+				D2C7F20F223DBEFE0051752B /* Variant.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 				D2C7F20E223DB9080051752B /* Products.swift in Sources */,
 				D2C7F208223DB1620051752B /* Collects.swift in Sources */,
 				D2C7F20C223DB9000051752B /* Product.swift in Sources */,
+				D2C7F210223DBEFE0051752B /* Variant.swift in Sources */,
 				D2EF025D223D672500A5A530 /* CustomCollection.swift in Sources */,
 				D2C7F20A223DB17D0051752B /* Collect.swift in Sources */,
 				D2959918223D620F00B4517B /* CustomCollectionVC.swift in Sources */,

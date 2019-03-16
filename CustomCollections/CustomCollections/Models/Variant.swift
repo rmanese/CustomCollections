@@ -1,5 +1,5 @@
 //
-//  Product.swift
+//  Variant.swift
 //  CustomCollections
 //
 //  Created by Roberto Manese III on 3/16/19.
@@ -8,7 +8,6 @@
 
 import Foundation
 
-class Product: Codable {
-    var title: String
-    var variants: [Variant]
+class Variant: Codable {
+    var inventoryQuantity: Int
 }

@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Custom CollectionVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CustomCollections" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CustomCollectionVC" customModule="CustomCollections" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -41,32 +41,35 @@
             </objects>
             <point key="canvasLocation" x="976.79999999999995" y="25.637181409295355"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="nZa-on-ARN">
+        <!--Collection DetailVC-->
+        <scene sceneID="ES8-VZ-4ww">
             <objects>
-                <viewController storyboardIdentifier="CollectionDetail" id="t2u-8C-3p4" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="fzI-mp-Zl1">
+                <viewController storyboardIdentifier="CollectionDetails" id="B2Q-4t-v7T" customClass="CollectionDetailVC" customModule="CustomCollections" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cef-qb-hJv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="b20-fj-Hsd">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BYd-nz-5Ax">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="EAu-OD-cth" firstAttribute="bottom" secondItem="b20-fj-Hsd" secondAttribute="bottom" id="VaO-eg-Ieh"/>
-                            <constraint firstItem="EAu-OD-cth" firstAttribute="trailing" secondItem="b20-fj-Hsd" secondAttribute="trailing" id="dod-C5-09a"/>
-                            <constraint firstItem="b20-fj-Hsd" firstAttribute="leading" secondItem="EAu-OD-cth" secondAttribute="leading" id="iRl-MH-KaZ"/>
-                            <constraint firstItem="b20-fj-Hsd" firstAttribute="top" secondItem="EAu-OD-cth" secondAttribute="top" id="uYs-pf-iH5"/>
+                            <constraint firstItem="kdv-bQ-zDZ" firstAttribute="bottom" secondItem="BYd-nz-5Ax" secondAttribute="bottom" id="P1h-fG-NNt"/>
+                            <constraint firstItem="kdv-bQ-zDZ" firstAttribute="trailing" secondItem="BYd-nz-5Ax" secondAttribute="trailing" id="a8U-eI-OmB"/>
+                            <constraint firstItem="BYd-nz-5Ax" firstAttribute="leading" secondItem="kdv-bQ-zDZ" secondAttribute="leading" id="cS0-IG-cGR"/>
+                            <constraint firstItem="BYd-nz-5Ax" firstAttribute="top" secondItem="kdv-bQ-zDZ" secondAttribute="top" id="yhh-so-wtQ"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="EAu-OD-cth"/>
+                        <viewLayoutGuide key="safeArea" id="kdv-bQ-zDZ"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="BYd-nz-5Ax" id="wOa-Qo-6HX"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kSL-M6-1bK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Va-WD-nFw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1744.8" y="25.637181409295355"/>
+            <point key="canvasLocation" x="1727" y="32"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="llm-nB-5bp">

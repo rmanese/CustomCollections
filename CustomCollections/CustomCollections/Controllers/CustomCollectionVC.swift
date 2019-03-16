@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class CustomCollectionVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet var tableView: UITableView!
 
@@ -18,27 +18,31 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
 
         self.tableView.dataSource = self
+        self.tableView.delegate = self
 
         performSelector(inBackground: #selector(fetchCollections), with: nil)
 
     }
 
     @objc func fetchCollections() {
-        let url: URL = URL(string: "https://shopicruit.myshopify.com/admin/custom_collections.json?page=1&access_token=c32313df0d0ef512ca64d5b336a0d7c6")!
-        let task = URLSession.shared.dataTask(with: url) {
-            (data, response, error) in
-            if let data = data {
-                self.parse(json: data)
+        let urlString: String = "https://shopicruit.myshopify.com/admin/custom_collections.json?page=1&access_token=c32313df0d0ef512ca64d5b336a0d7c6"
+        if let url = URL(string: urlString) {
+            let task = URLSession.shared.dataTask(with: url) {
+                (data, response, error) in
+                if let data = data {
+                    self.parse(json: data)
+                }
             }
+            task.resume()
         }
-        task.resume()
+
     }
 
     func parse(json: Data) {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
-        if let jsonPetitions = try? decoder.decode(CustomCollections.self, from: json) {
-            self.customCollections = jsonPetitions.customCollections
+        if let jsonCollections = try? decoder.decode(CustomCollections.self, from: json) {
+            self.customCollections = jsonCollections.customCollections
         }
         DispatchQueue.main.async {
             self.tableView.reloadData()
@@ -59,8 +63,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     //MARK: - UITableViewDelegate Methods
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let collection = self.customCollections[indexPath.row]
-
+        let collectionID = self.customCollections[indexPath.row].id
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "CollectionDetails") as? CollectionDetailVC {
+            vc.collectionID = collectionID
+            self.navigationController?.pushViewController(vc, animated: false)
+        }
+        
     }
 
 

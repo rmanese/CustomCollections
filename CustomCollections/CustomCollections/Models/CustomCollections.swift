@@ -11,3 +11,8 @@ import Foundation
 class CustomCollections: Codable {
     var customCollections: [CustomCollection]
 }
+
+class CustomCollection: Codable {
+    var id: Int
+    var title: String
+}

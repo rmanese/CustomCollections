@@ -11,3 +11,8 @@ import Foundation
 class Products: Codable {
     var products: [Product]
 }
+
+class Product: Codable {
+    var title: String
+    var variants: [Variant]
+}

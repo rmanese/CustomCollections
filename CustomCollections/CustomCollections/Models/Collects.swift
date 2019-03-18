@@ -11,3 +11,8 @@ import Foundation
 class Collects: Codable {
     var collects: [Collect]
 }
+
+class Collect: Codable {
+    var id: Int
+    var productId: Int
+}

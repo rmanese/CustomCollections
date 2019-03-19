@@ -15,4 +15,12 @@ class Products: Codable {
 class Product: Codable {
     var title: String
     var variants: [Variant]
+
+    func countQuantity(variants: [Variant]) -> Int {
+        var total = 0
+        for variant in variants {
+            total += variant.inventoryQuantity
+        }
+        return total
+    }
 }

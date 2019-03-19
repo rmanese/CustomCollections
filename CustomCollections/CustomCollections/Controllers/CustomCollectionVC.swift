@@ -19,6 +19,7 @@ class CustomCollectionVC: UIViewController, UITableViewDataSource, UITableViewDe
 
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        self.tableView.tableFooterView = UIView()
 
         performSelector(inBackground: #selector(fetchCollections), with: nil)
 
@@ -57,15 +58,16 @@ class CustomCollectionVC: UIViewController, UITableViewDataSource, UITableViewDe
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = self.customCollections[indexPath.row].title
+        cell.selectionStyle = .none
+        cell.textLabel?.text = self.customCollections[indexPath.row].title.capitalized
         return cell
     }
 
     //MARK: - UITableViewDelegate Methods
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let collectionID = self.customCollections[indexPath.row].id
+        let collection = self.customCollections[indexPath.row]
         if let vc = storyboard?.instantiateViewController(withIdentifier: "CollectionDetails") as? CollectionDetailVC {
-            vc.collectionID = collectionID
+            vc.selectedCollection = collection
             self.navigationController?.pushViewController(vc, animated: false)
         }
         

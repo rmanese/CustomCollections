@@ -12,21 +12,27 @@ class CollectionDetailVC: UIViewController, UITableViewDataSource, UITableViewDe
 
     @IBOutlet var tableView: UITableView!
 
-    var collectionID: Int?
+    var selectedCollection: CustomCollection?
     var collectsArray = [Collect]()
     var productsArray = [Product]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if let collection = selectedCollection {
+            self.title = collection.title.capitalized
+        }
+
         performSelector(inBackground: #selector(fetchCollects), with: nil)
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        self.tableView.register(UINib(nibName: "ProductCell", bundle: nil), forCellReuseIdentifier: "ProductCell")
+        self.tableView.tableFooterView = UIView()
     }
 
     @objc func fetchCollects() {
-        guard let collectionID = collectionID else { return }
-        let urlString = "https://shopicruit.myshopify.com/admin/collects.json?collection_id=\(collectionID)&page=1&access_token=c32313df0d0ef512ca64d5b336a0d7c6"
+        guard let collection = selectedCollection else { return }
+        let urlString = "https://shopicruit.myshopify.com/admin/collects.json?collection_id=\(collection.id)&page=1&access_token=c32313df0d0ef512ca64d5b336a0d7c6"
 
         if let url = URL(string: urlString) {
             let task = URLSession.shared.dataTask(with: url) {
@@ -96,10 +102,8 @@ class CollectionDetailVC: UIViewController, UITableViewDataSource, UITableViewDe
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        let product = productsArray[indexPath.row]
-        let quantity = totalQuantity(product: product)
-        cell.textLabel?.text = "\(self.productsArray[indexPath.row].title) (\(quantity) left)"
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "ProductCell") as! ProductCell
+        cell.configure(collection: self.selectedCollection, product: self.productsArray[indexPath.row])
         return cell
     }
 

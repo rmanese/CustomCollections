@@ -15,4 +15,10 @@ class CustomCollections: Codable {
 class CustomCollection: Codable {
     var id: Int
     var title: String
+    var bodyHtml: String
+    var image: Image
+}
+
+class Image: Codable {
+    var src: String
 }

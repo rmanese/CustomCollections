@@ -11,7 +11,6 @@ import UIKit
 class ProductCell: UITableViewCell {
 
     @IBOutlet var collectionImage: UIImageView!
-    @IBOutlet var detailsStackView: UIStackView!
     @IBOutlet var collectionTitleLabel: UILabel!
     @IBOutlet var productTitleLabel: UILabel!
     @IBOutlet var totalQuantityLabel: UILabel!
@@ -33,10 +32,13 @@ class ProductCell: UITableViewCell {
         guard let collection = collection else { return }
         let quantity = product.countQuantity(variants: product.variants)
 
+        let attributedText = NSMutableAttributedString(string: "$\(product.variants[0].price)", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16)])
+        attributedText.append(NSAttributedString(string: " (\(quantity) units left)", attributes: [NSAttributedString.Key.font :UIFont.systemFont(ofSize: 14), NSAttributedString.Key.foregroundColor: UIColor.lightGray]))
+
         self.loadImage(urlString: product.image.src)
         self.collectionTitleLabel.text = collection.title.capitalized
         self.productTitleLabel.text = product.title.capitalized
-        self.totalQuantityLabel.text = quantity == 1 ? "\(quantity) unit left" : "\(quantity) units left"
+        self.totalQuantityLabel.attributedText = attributedText
     }
 
     private func loadImage(urlString: String) {

@@ -12,8 +12,8 @@ class CustomCollectionVC: UIViewController, UITableViewDataSource, UITableViewDe
 
     @IBOutlet var tableView: UITableView!
 
-    var networkManager = NetworkManager()
-    var customCollections = [CustomCollection]()
+    private let networkManager = NetworkManager()
+    private var customCollections = [CustomCollection]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +51,7 @@ class CustomCollectionVC: UIViewController, UITableViewDataSource, UITableViewDe
     }
 
     //MARK: - UITableViewDelegate Methods
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let collection = self.customCollections[indexPath.row]
         if let vc = storyboard?.instantiateViewController(withIdentifier: "CollectionDetails") as? CollectionDetailVC {

@@ -15,8 +15,8 @@ class CollectionDetailVC: UIViewController, UITableViewDataSource {
     private let networkManager = NetworkManager()
 
     var selectedCollection: CustomCollection?
-    var collectsArray = [Collect]()
-    var productsArray = [Product]()
+    private var collectsArray = [Collect]()
+    private var productsArray = [Product]()
 
     override func viewDidLoad() {
         super.viewDidLoad()

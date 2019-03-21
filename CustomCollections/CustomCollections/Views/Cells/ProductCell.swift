@@ -12,16 +12,15 @@ class ProductCell: UITableViewCell {
 
     @IBOutlet var collectionImage: UIImageView!
     @IBOutlet var detailsStackView: UIStackView!
-
     @IBOutlet var collectionTitleLabel: UILabel!
     @IBOutlet var productTitleLabel: UILabel!
     @IBOutlet var totalQuantityLabel: UILabel!
-
 
     override func awakeFromNib() {
         super.awakeFromNib()
 
         self.selectionStyle = .none
+        self.layoutIfNeeded()
     }
 
     override func prepareForReuse() {
@@ -33,11 +32,12 @@ class ProductCell: UITableViewCell {
 
     func configure(collection: CustomCollection?, product: Product) {
         guard let collection = collection else { return }
-        loadImage(urlString: collection.image.src)
-        
+        let quantity = product.countQuantity(variants: product.variants)
+
+        self.loadImage(urlString: collection.image.src)
         self.collectionTitleLabel.text = collection.title.capitalized
         self.productTitleLabel.text = product.title.capitalized
-        self.totalQuantityLabel.text = "\(product.countQuantity(variants: product.variants)) units left"
+        self.totalQuantityLabel.text = quantity == 1 ? "\(quantity) unit left" : "\(quantity) units left"
     }
 
     private func loadImage(urlString: String) {

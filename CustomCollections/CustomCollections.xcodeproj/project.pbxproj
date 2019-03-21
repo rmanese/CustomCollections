@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D240AEAE223D876D00CF0D08 /* CollectionDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D240AEAD223D876D00CF0D08 /* CollectionDetailVC.swift */; };
+		D247363E2243F6D700EA74C2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D247363D2243F6D700EA74C2 /* NetworkManager.swift */; };
 		D2959916223D620F00B4517B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2959915223D620F00B4517B /* AppDelegate.swift */; };
 		D2959918223D620F00B4517B /* CustomCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2959917223D620F00B4517B /* CustomCollectionVC.swift */; };
 		D295991B223D620F00B4517B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2959919223D620F00B4517B /* Main.storyboard */; };
@@ -17,12 +18,12 @@
 		D2B0F286223EC57D00B3378D /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2B0F284223EC57D00B3378D /* ProductCell.xib */; };
 		D2C7F208223DB1620051752B /* Collects.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7F207223DB1620051752B /* Collects.swift */; };
 		D2C7F20E223DB9080051752B /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7F20D223DB9080051752B /* Products.swift */; };
-		D2C7F210223DBEFE0051752B /* Variant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7F20F223DBEFE0051752B /* Variant.swift */; };
 		D2EF025B223D667600A5A530 /* CustomCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EF025A223D667600A5A530 /* CustomCollections.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D240AEAD223D876D00CF0D08 /* CollectionDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDetailVC.swift; sourceTree = "<group>"; };
+		D247363D2243F6D700EA74C2 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		D2959912223D620F00B4517B /* CustomCollections.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomCollections.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2959915223D620F00B4517B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2959917223D620F00B4517B /* CustomCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionVC.swift; sourceTree = "<group>"; };
@@ -34,7 +35,6 @@
 		D2B0F284223EC57D00B3378D /* ProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
 		D2C7F207223DB1620051752B /* Collects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collects.swift; sourceTree = "<group>"; };
 		D2C7F20D223DB9080051752B /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
-		D2C7F20F223DBEFE0051752B /* Variant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Variant.swift; sourceTree = "<group>"; };
 		D2EF025A223D667600A5A530 /* CustomCollections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollections.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,7 +120,7 @@
 				D2EF025A223D667600A5A530 /* CustomCollections.swift */,
 				D2C7F207223DB1620051752B /* Collects.swift */,
 				D2C7F20D223DB9080051752B /* Products.swift */,
-				D2C7F20F223DBEFE0051752B /* Variant.swift */,
+				D247363D2243F6D700EA74C2 /* NetworkManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -200,8 +200,8 @@
 				D2C7F20E223DB9080051752B /* Products.swift in Sources */,
 				D2B0F285223EC57D00B3378D /* ProductCell.swift in Sources */,
 				D2C7F208223DB1620051752B /* Collects.swift in Sources */,
-				D2C7F210223DBEFE0051752B /* Variant.swift in Sources */,
 				D2959918223D620F00B4517B /* CustomCollectionVC.swift in Sources */,
+				D247363E2243F6D700EA74C2 /* NetworkManager.swift in Sources */,
 				D2EF025B223D667600A5A530 /* CustomCollections.swift in Sources */,
 				D240AEAE223D876D00CF0D08 /* CollectionDetailVC.swift in Sources */,
 				D2959916223D620F00B4517B /* AppDelegate.swift in Sources */,

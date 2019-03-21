@@ -12,6 +12,7 @@ class CustomCollectionVC: UIViewController, UITableViewDataSource, UITableViewDe
 
     @IBOutlet var tableView: UITableView!
 
+    var networkManager = NetworkManager()
     var customCollections = [CustomCollection]()
 
     override func viewDidLoad() {
@@ -26,27 +27,13 @@ class CustomCollectionVC: UIViewController, UITableViewDataSource, UITableViewDe
     }
 
     @objc func fetchCollections() {
-        let urlString: String = "https://shopicruit.myshopify.com/admin/custom_collections.json?page=1&access_token=c32313df0d0ef512ca64d5b336a0d7c6"
-        if let url = URL(string: urlString) {
-            let task = URLSession.shared.dataTask(with: url) {
-                (data, response, error) in
-                if let data = data {
-                    self.parse(json: data)
+        self.networkManager.fetchCollections { (customCollections, _) in
+            if let fetchedCollections = customCollections {
+                self.customCollections = fetchedCollections
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
                 }
             }
-            task.resume()
-        }
-
-    }
-
-    func parse(json: Data) {
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        if let jsonCollections = try? decoder.decode(CustomCollections.self, from: json) {
-            self.customCollections = jsonCollections.customCollections
-        }
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
         }
     }
 
@@ -64,15 +51,13 @@ class CustomCollectionVC: UIViewController, UITableViewDataSource, UITableViewDe
     }
 
     //MARK: - UITableViewDelegate Methods
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let collection = self.customCollections[indexPath.row]
         if let vc = storyboard?.instantiateViewController(withIdentifier: "CollectionDetails") as? CollectionDetailVC {
             vc.selectedCollection = collection
             self.navigationController?.pushViewController(vc, animated: false)
         }
-        
     }
 
-
 }
-

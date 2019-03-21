@@ -24,3 +24,8 @@ class Product: Codable {
         return total
     }
 }
+
+class Variant: Codable {
+    var price: String
+    var inventoryQuantity: Int
+}

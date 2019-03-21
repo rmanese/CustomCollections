@@ -8,9 +8,11 @@
 
 import UIKit
 
-class CollectionDetailVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class CollectionDetailVC: UIViewController, UITableViewDataSource {
 
     @IBOutlet var tableView: UITableView!
+
+    private let networkManager = NetworkManager()
 
     var selectedCollection: CustomCollection?
     var collectsArray = [Collect]()
@@ -19,68 +21,31 @@ class CollectionDetailVC: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let collection = selectedCollection {
-            self.title = collection.title.capitalized
-        }
-
-        performSelector(inBackground: #selector(fetchCollects), with: nil)
+        performSelector(inBackground: #selector(fetchProducts), with: nil)
         self.tableView.dataSource = self
-        self.tableView.delegate = self
         self.tableView.register(UINib(nibName: "ProductCell", bundle: nil), forCellReuseIdentifier: "ProductCell")
         self.tableView.tableFooterView = UIView()
     }
 
-    @objc func fetchCollects() {
-        guard let collection = selectedCollection else { return }
-        let urlString = "https://shopicruit.myshopify.com/admin/collects.json?collection_id=\(collection.id)&page=1&access_token=c32313df0d0ef512ca64d5b336a0d7c6"
-
-        if let url = URL(string: urlString) {
-            let task = URLSession.shared.dataTask(with: url) {
-                (data, response, error) in
-                if let data = data {
-                    self.parseCollects(json: data)
-                }
-            }
-            task.resume()
-        }
-    }
-
     @objc func fetchProducts() {
-        let ids = concatProductIDs()
-        let urlString = "https://shopicruit.myshopify.com/admin/products.json?ids=\(ids)&page=1&access_token=c32313df0d0ef512ca64d5b336a0d7c6"
-
-        if let url = URL(string: urlString) {
-            let task = URLSession.shared.dataTask(with: url) {
-                (data, response, error) in
-                if let data = data {
-                    self.parseProducts(json: data)
-                }
+        guard let collection = selectedCollection else { return }
+        self.networkManager.fetchCollects(id: collection.id) { (fetchedCollects, _) in
+            if let collects = fetchedCollects {
+                self.collectsArray = collects
+                let productIDs = self.concatProductIDs()
+                self.networkManager.fetchProducts(ids: productIDs, completionHandler: { (fetchedProducts, _) in
+                    if let products = fetchedProducts {
+                        self.productsArray = products
+                    }
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                })
             }
-            task.resume()
         }
     }
 
-    func parseCollects(json: Data) {
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        if let jsonCollects = try? decoder.decode(Collects.self, from: json) {
-            self.collectsArray = jsonCollects.collects
-            fetchProducts()
-        }
-    }
-
-    func parseProducts(json: Data) {
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        if let jsonProducts = try? decoder.decode(Products.self, from: json) {
-            self.productsArray = jsonProducts.products
-        }
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
-    }
-
-    func concatProductIDs() -> String {
+    private func concatProductIDs() -> String {
         var ids: String = ""
         for collect in self.collectsArray {
             ids += "\(collect.productId),"
@@ -89,13 +54,7 @@ class CollectionDetailVC: UIViewController, UITableViewDataSource, UITableViewDe
         return ids
     }
 
-    func totalQuantity(product: Product) -> Int {
-        var quantity = 0
-        for variant in product.variants {
-            quantity += variant.inventoryQuantity
-        }
-        return quantity
-    }
+    //MARK: - UITableViewDataSource Methods
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.collectsArray.count

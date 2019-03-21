@@ -20,7 +20,6 @@ class ProductCell: UITableViewCell {
         super.awakeFromNib()
 
         self.selectionStyle = .none
-        self.layoutIfNeeded()
     }
 
     override func prepareForReuse() {
@@ -34,7 +33,7 @@ class ProductCell: UITableViewCell {
         guard let collection = collection else { return }
         let quantity = product.countQuantity(variants: product.variants)
 
-        self.loadImage(urlString: collection.image.src)
+        self.loadImage(urlString: product.image.src)
         self.collectionTitleLabel.text = collection.title.capitalized
         self.productTitleLabel.text = product.title.capitalized
         self.totalQuantityLabel.text = quantity == 1 ? "\(quantity) unit left" : "\(quantity) units left"

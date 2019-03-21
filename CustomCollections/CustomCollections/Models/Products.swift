@@ -14,6 +14,7 @@ class Products: Codable {
 
 class Product: Codable {
     var title: String
+    var image: Image
     var variants: [Variant]
 
     func countQuantity(variants: [Variant]) -> Int {

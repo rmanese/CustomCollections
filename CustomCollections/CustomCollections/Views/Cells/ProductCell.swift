@@ -43,13 +43,11 @@ class ProductCell: UITableViewCell {
 
     private func loadImage(urlString: String) {
         DispatchQueue.global().async {
-            if let url = URL(string: urlString) {
-                if let imageData = try? Data(contentsOf: url) {
-                    if let image = UIImage(data: imageData) {
-                        DispatchQueue.main.async {
-                            self.collectionImage.image = image
-                        }
-                    }
+            if let url = URL(string: urlString),
+                let imageData = try? Data(contentsOf: url),
+                let image = UIImage(data: imageData) {
+                DispatchQueue.main.async {
+                    self.collectionImage.image = image
                 }
             }
         }

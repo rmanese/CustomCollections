@@ -16,3 +16,14 @@ class Collect: Codable {
     var id: Int
     var productId: Int
 }
+
+extension Array where Element: Collect {
+    var productIds: String {
+        var ids = ""
+        for collect in self {
+            ids += "\(collect.productId),"
+        }
+        ids.removeLast()
+        return ids
+    }
+}

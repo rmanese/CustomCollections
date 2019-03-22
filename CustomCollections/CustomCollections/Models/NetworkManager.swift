@@ -11,9 +11,12 @@ import Foundation
 class NetworkManager {
 
     private let decoder = JSONDecoder()
+    private let hostName = "https://shopicruit.myshopify.com"
+    private let accessToken = "&access_token=c32313df0d0ef512ca64d5b336a0d7c6"
 
     func fetchCollections(completionHandler: @escaping (([CustomCollection]?, Error?) -> Void)) {
-        let urlString: String = "https://shopicruit.myshopify.com/admin/custom_collections.json?page=1&access_token=c32313df0d0ef512ca64d5b336a0d7c6"
+        let path = "/admin/custom_collections.json?page=1"
+        let urlString = hostName+path+accessToken
         if let url = URL(string: urlString) {
             let task = URLSession.shared.dataTask(with: url) {
                 (data, response, error) in
@@ -31,7 +34,8 @@ class NetworkManager {
     }
 
     func fetchCollects(id: Int, completionHandler: @escaping (([Collect]?, Error?) -> Void)) {
-        let urlString = "https://shopicruit.myshopify.com/admin/collects.json?collection_id=\(id)&page=1&access_token=c32313df0d0ef512ca64d5b336a0d7c6"
+        let path = "/admin/collects.json?collection_id=\(id)&page=1"
+        let urlString = hostName+path+accessToken
         if let url = URL(string: urlString) {
             let task = URLSession.shared.dataTask(with: url) {
                 (data, response, error) in
@@ -49,7 +53,8 @@ class NetworkManager {
     }
 
     func fetchProducts(ids: String, completionHandler: @escaping (([Product]?, Error?) -> Void)) {
-        let urlString = "https://shopicruit.myshopify.com/admin/products.json?ids=\(ids)&page=1&access_token=c32313df0d0ef512ca64d5b336a0d7c6"
+        let path = "/admin/products.json?ids=\(ids)&page=1"
+        let urlString = hostName+path+accessToken
         if let url = URL(string: urlString) {
             let task = URLSession.shared.dataTask(with: url) {
                 (data, response, error) in

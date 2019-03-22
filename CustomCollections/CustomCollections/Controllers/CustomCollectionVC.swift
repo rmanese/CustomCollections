@@ -27,7 +27,8 @@ class CustomCollectionVC: UIViewController, UITableViewDataSource, UITableViewDe
     }
 
     @objc func fetchCollections() {
-        self.networkManager.fetchCollections { (customCollections, _) in
+        self.networkManager.fetchCollections { [weak self] (customCollections, _) in
+            guard let self = self else { return }
             if let fetchedCollections = customCollections {
                 self.customCollections = fetchedCollections
                 DispatchQueue.main.async {
@@ -54,6 +55,7 @@ class CustomCollectionVC: UIViewController, UITableViewDataSource, UITableViewDe
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let collection = self.customCollections[indexPath.row]
+        // change the hard string id for storyboard
         if let vc = storyboard?.instantiateViewController(withIdentifier: "CollectionDetails") as? CollectionDetailVC {
             vc.selectedCollection = collection
             self.navigationController?.pushViewController(vc, animated: false)

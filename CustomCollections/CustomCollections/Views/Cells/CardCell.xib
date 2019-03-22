@@ -37,12 +37,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ed4-89-P9I">
-                                <rect key="frame" x="146.5" y="44" width="220.5" height="89.5"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ed4-89-P9I">
+                                <rect key="frame" x="146.5" y="40" width="220.5" height="89.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="89.5" id="ayv-vy-tvW"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -56,7 +56,7 @@
                             <constraint firstItem="ed4-89-P9I" firstAttribute="leading" secondItem="4wa-Zq-PCv" secondAttribute="leading" id="c3D-at-RQG"/>
                             <constraint firstItem="4wa-Zq-PCv" firstAttribute="top" secondItem="0z2-wl-h6n" secondAttribute="top" id="lHK-Qk-FIl"/>
                             <constraint firstItem="4wa-Zq-PCv" firstAttribute="leading" secondItem="0z2-wl-h6n" secondAttribute="trailing" constant="16" id="ma1-vD-zLU"/>
-                            <constraint firstItem="ed4-89-P9I" firstAttribute="top" secondItem="4wa-Zq-PCv" secondAttribute="bottom" constant="8" id="weE-zS-RfN"/>
+                            <constraint firstItem="ed4-89-P9I" firstAttribute="top" secondItem="4wa-Zq-PCv" secondAttribute="bottom" constant="4" id="weE-zS-RfN"/>
                         </constraints>
                     </view>
                 </subviews>

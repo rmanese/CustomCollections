@@ -18,12 +18,16 @@ class CollectionDetailVC: UIViewController, UITableViewDataSource {
     private var collectsArray = [Collect]()
     private var productsArray = [Product]()
 
+    private let productCellID = "ProductCell"
+    private let cardCellID = "CardCell"
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         performSelector(inBackground: #selector(fetchProducts), with: nil)
         self.tableView.dataSource = self
-        self.tableView.register(UINib(nibName: "ProductCell", bundle: nil), forCellReuseIdentifier: "ProductCell")
+        self.tableView.register(UINib(nibName: self.productCellID, bundle: nil), forCellReuseIdentifier: self.productCellID)
+        self.tableView.register(UINib(nibName: self.cardCellID, bundle: nil), forCellReuseIdentifier: self.cardCellID)
         self.tableView.tableFooterView = UIView()
     }
 
@@ -61,9 +65,15 @@ class CollectionDetailVC: UIViewController, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: "ProductCell") as! ProductCell
-        cell.configure(collection: self.selectedCollection, product: self.productsArray[indexPath.row])
-        return cell
+        if indexPath.row == 0 {
+            let cell = self.tableView.dequeueReusableCell(withIdentifier: self.cardCellID) as! CardCell
+            cell.configure(collection: self.selectedCollection)
+            cell.collectionDescriptionTextViewHC.constant = cell.collectionDescriptionTextView.contentSize.height
+            return cell
+        } else {
+            let cell = self.tableView.dequeueReusableCell(withIdentifier: self.productCellID) as! ProductCell
+            cell.configure(collection: self.selectedCollection, product: self.productsArray[indexPath.row])
+            return cell
+        }
     }
-
 }

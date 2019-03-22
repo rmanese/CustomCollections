@@ -20,27 +20,33 @@ class CardCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
+        selectionStyle = .none
+    }
+
+    override func prepareForReuse() {
+        collectionImageView.image = nil
+        collectionDescriptionTextView.text = ""
+        collectionTitleLabel.text = ""
     }
 
     func configure(collection: CustomCollection?) {
         guard let collection = collection else { return }
-        self.collectionTitleLabel.text = collection.title
+        collectionTitleLabel.text = collection.title
 
-        self.collectionDescriptionTextView.text = collection.bodyHtml.isEmpty ? "No description" : collection.bodyHtml
-        self.loadImage(urlString: collection.image.src)
+        collectionDescriptionTextView.text = collection.bodyHtml.isEmpty ? "No description" : collection.bodyHtml
+        loadImage(urlString: collection.image.src)
     }
 
     private func loadImage(urlString: String) {
         DispatchQueue.global().async {
-            if let url = URL(string: urlString) {
-                if let imageData = try? Data(contentsOf: url) {
-                    if let image = UIImage(data: imageData) {
-                        DispatchQueue.main.async {
-                            self.collectionImageView.image = image
-                        }
-                    }
+            if let url = URL(string: urlString),
+                let imageData = try? Data(contentsOf: url),
+                let image = UIImage(data: imageData) {
+                DispatchQueue.main.async {
+                    self.collectionImageView.image = image
                 }
             }
         }
     }
+
 }

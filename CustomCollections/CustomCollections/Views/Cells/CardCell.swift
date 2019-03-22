@@ -11,21 +11,31 @@ import UIKit
 class CardCell: UITableViewCell {
 
     @IBOutlet var mainView: UIView!
-    @IBOutlet var shadowView: UIView!
-    @IBOutlet var collectionDescriptionTextViewHC: NSLayoutConstraint!
     @IBOutlet var collectionTitleLabel: UILabel!
-    @IBOutlet var collectionDescriptionTextView: UITextView!
+    @IBOutlet var collectionDescriptionLabel: UILabel!
     @IBOutlet var collectionImageView: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
 
         selectionStyle = .none
+
+        collectionTitleLabel.adjustsFontSizeToFitWidth = true
+
+        mainView.layer.cornerRadius = 15
+        mainView.layer.shadowColor = UIColor.black.cgColor
+        mainView.layer.shadowOpacity = 10
+        mainView.layer.shadowOffset = CGSize.zero
+        mainView.layer.shadowRadius = 5
+
+        collectionImageView.layer.borderColor = UIColor.lightGray.cgColor
+        collectionImageView.layer.borderWidth = 2
+        collectionImageView.layer.cornerRadius = 5
     }
 
     override func prepareForReuse() {
         collectionImageView.image = nil
-        collectionDescriptionTextView.text = ""
+        collectionDescriptionLabel.text = ""
         collectionTitleLabel.text = ""
     }
 
@@ -33,7 +43,7 @@ class CardCell: UITableViewCell {
         guard let collection = collection else { return }
         collectionTitleLabel.text = collection.title
 
-        collectionDescriptionTextView.text = collection.bodyHtml.isEmpty ? "No description" : collection.bodyHtml
+        collectionDescriptionLabel.text = collection.bodyHtml.isEmpty ? "No description" : collection.bodyHtml
         loadImage(urlString: collection.image.src)
     }
 

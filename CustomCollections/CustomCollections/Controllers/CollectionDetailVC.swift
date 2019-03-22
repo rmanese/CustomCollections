@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CollectionDetailVC: UIViewController, UITableViewDataSource {
+class CollectionDetailVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet var tableView: UITableView!
 
@@ -20,17 +20,15 @@ class CollectionDetailVC: UIViewController, UITableViewDataSource {
     private var collectsArray = [Collect]()
     private var productsArray = [Product]()
 
-    private let productCellID = "ProductCell"
-    private let cardCellID = "CardCell"
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         performSelector(inBackground: #selector(fetchCollects), with: nil)
-        self.tableView.dataSource = self
-        self.tableView.register(UINib(nibName: self.productCellIdentifier, bundle: nil), forCellReuseIdentifier: self.productCellIdentifier)
-        self.tableView.register(UINib(nibName: self.cardCellID, bundle: nil), forCellReuseIdentifier: self.cardCellID)
-        self.tableView.tableFooterView = UIView()
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(UINib(nibName: self.productCellIdentifier, bundle: nil), forCellReuseIdentifier: self.productCellIdentifier)
+        tableView.register(UINib(nibName: self.cardCellIdentifier, bundle: nil), forCellReuseIdentifier: self.cardCellIdentifier)
+        tableView.tableFooterView = UIView()
     }
 
     @objc func fetchCollects() {
@@ -64,9 +62,8 @@ class CollectionDetailVC: UIViewController, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            let cell = self.tableView.dequeueReusableCell(withIdentifier: self.cardCellID) as! CardCell
+            let cell = self.tableView.dequeueReusableCell(withIdentifier: self.cardCellIdentifier) as! CardCell
             cell.configure(collection: self.selectedCollection)
-            cell.collectionDescriptionTextViewHC.constant = cell.collectionDescriptionTextView.contentSize.height
             return cell
         } else {
             let cell = self.tableView.dequeueReusableCell(withIdentifier: self.productCellIdentifier) as! ProductCell
@@ -74,4 +71,5 @@ class CollectionDetailVC: UIViewController, UITableViewDataSource {
             return cell
         }
     }
+
 }

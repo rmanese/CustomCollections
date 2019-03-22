@@ -1,6 +1,18 @@
-<h2>Technologies</h2>
-<p>Swift, AutoLayout, URLSession</p>
-<p>APIs: Shopify Shopicruit </p>
+# Custom Collections
 
-<h2>About Me</h2>
-Roberto Manese is an iOS Engineer in the Bay Area. Learn more about Roberto on <a href="https://www.linkedin.com/in/rmanese/">LinkedIn</a>.
+Input Description
+
+## Contents
+* [Tech Stack](#technologies)
+* [Demo](#demo)
+* [About Me](#aboutme)
+
+## <a name="technologies"></a>Technologies
+Swift, Auto Layout, URL Session
+
+## <a name="demo"></a>Demo
+![gameplay](images/CustomCollection.gif)</br>
+
+## <a name="aboutme"></a>About Me
+Roberto Manese is an iOS Engineer in the Bay Area.
+Learn more about Roberto on [LinkedIn](https://www.linkedin.com/in/rmanese/).

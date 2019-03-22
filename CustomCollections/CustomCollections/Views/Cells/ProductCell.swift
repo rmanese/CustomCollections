@@ -19,6 +19,9 @@ class ProductCell: UITableViewCell {
         super.awakeFromNib()
 
         self.selectionStyle = .none
+        collectionTitleLabel.adjustsFontSizeToFitWidth = true
+        productTitleLabel.adjustsFontSizeToFitWidth = true
+        totalQuantityLabel.adjustsFontSizeToFitWidth = true
     }
 
     override func prepareForReuse() {

@@ -11,7 +11,6 @@ import UIKit
 class CardCell: UITableViewCell {
 
     @IBOutlet var mainView: UIView!
-    @IBOutlet var shadowView: UIView!
     @IBOutlet var collectionTitleLabel: UILabel!
     @IBOutlet var collectionDescriptionLabel: UILabel!
     @IBOutlet var collectionImageView: UIImageView!
@@ -23,13 +22,11 @@ class CardCell: UITableViewCell {
 
         collectionTitleLabel.adjustsFontSizeToFitWidth =    true
 
-
         mainView.layer.cornerRadius = 15
         mainView.layer.shadowColor = UIColor.black.cgColor
         mainView.layer.shadowOpacity = 10
         mainView.layer.shadowOffset = CGSize.zero
         mainView.layer.shadowRadius = 5
-
 
         collectionImageView.layer.borderColor = UIColor.lightGray.cgColor
         collectionImageView.layer.borderWidth = 2

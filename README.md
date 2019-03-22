@@ -3,7 +3,7 @@
 Input Description
 
 ## Technologies
-Swift, Auto Layout, URL Session
+Swift, Auto Layout, URLSession
 
 ## Demo
 ![gameplay](images/CustomCollection.gif)</br>

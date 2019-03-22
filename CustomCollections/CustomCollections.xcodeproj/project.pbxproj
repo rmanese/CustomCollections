@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D2297EF922444D14003093AC /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2297EF722444D14003093AC /* CardCell.swift */; };
+		D2297EFA22444D14003093AC /* CardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2297EF822444D14003093AC /* CardCell.xib */; };
 		D240AEAE223D876D00CF0D08 /* CollectionDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D240AEAD223D876D00CF0D08 /* CollectionDetailVC.swift */; };
 		D247363E2243F6D700EA74C2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D247363D2243F6D700EA74C2 /* NetworkManager.swift */; };
 		D2959916223D620F00B4517B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2959915223D620F00B4517B /* AppDelegate.swift */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D2297EF722444D14003093AC /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
+		D2297EF822444D14003093AC /* CardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCell.xib; sourceTree = "<group>"; };
 		D240AEAD223D876D00CF0D08 /* CollectionDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDetailVC.swift; sourceTree = "<group>"; };
 		D247363D2243F6D700EA74C2 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		D2959912223D620F00B4517B /* CustomCollections.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomCollections.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +114,8 @@
 			children = (
 				D2B0F283223EC57D00B3378D /* ProductCell.swift */,
 				D2B0F284223EC57D00B3378D /* ProductCell.xib */,
+				D2297EF722444D14003093AC /* CardCell.swift */,
+				D2297EF822444D14003093AC /* CardCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -185,6 +191,7 @@
 			files = (
 				D2959920223D620F00B4517B /* LaunchScreen.storyboard in Resources */,
 				D2B0F286223EC57D00B3378D /* ProductCell.xib in Resources */,
+				D2297EFA22444D14003093AC /* CardCell.xib in Resources */,
 				D295991D223D620F00B4517B /* Assets.xcassets in Resources */,
 				D295991B223D620F00B4517B /* Main.storyboard in Resources */,
 			);
@@ -205,6 +212,7 @@
 				D2EF025B223D667600A5A530 /* CustomCollections.swift in Sources */,
 				D240AEAE223D876D00CF0D08 /* CollectionDetailVC.swift in Sources */,
 				D2959916223D620F00B4517B /* AppDelegate.swift in Sources */,
+				D2297EF922444D14003093AC /* CardCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -64,7 +64,6 @@ class CollectionDetailVC: UIViewController, UITableViewDataSource, UITableViewDe
         if indexPath.row == 0 {
             let cell = self.tableView.dequeueReusableCell(withIdentifier: self.cardCellIdentifier) as! CardCell
             cell.configure(collection: self.selectedCollection)
-
             return cell
         } else {
             let cell = self.tableView.dequeueReusableCell(withIdentifier: self.productCellIdentifier) as! ProductCell

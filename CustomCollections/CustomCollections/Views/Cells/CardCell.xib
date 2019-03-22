@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -16,27 +16,27 @@
             <rect key="frame" x="0.0" y="0.0" width="335" height="247"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="335" height="246.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="335" height="246.66666666666666"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vXI-gC-hCz">
-                        <rect key="frame" x="8" y="8" width="319" height="230.5"/>
+                        <rect key="frame" x="8" y="8" width="319" height="230.66666666666666"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0z2-wl-h6n">
-                                <rect key="frame" x="4" y="8" width="150" height="150"/>
+                                <rect key="frame" x="4" y="8" width="112.66666666666667" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="0z2-wl-h6n" secondAttribute="height" multiplier="1:1" id="W6B-YF-38e"/>
+                                    <constraint firstAttribute="width" secondItem="0z2-wl-h6n" secondAttribute="height" multiplier="3:4" id="W6B-YF-38e"/>
                                     <constraint firstAttribute="height" constant="150" id="uo1-u3-fVL"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8W-v2-41v">
-                                <rect key="frame" x="170" y="4" width="50.5" height="24"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <rect key="frame" x="124.66666666666666" y="4.0000000000000018" width="60" height="27.666666666666671"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMB-65-KXg">
-                                <rect key="frame" x="170" y="40" width="37.5" height="18"/>
+                                <rect key="frame" x="124.66666666666664" y="43.666666666666664" width="37.333333333333329" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -50,8 +50,8 @@
                             <constraint firstItem="0z2-wl-h6n" firstAttribute="leading" secondItem="vXI-gC-hCz" secondAttribute="leading" constant="4" id="VAc-cB-hld"/>
                             <constraint firstItem="QMB-65-KXg" firstAttribute="top" secondItem="A8W-v2-41v" secondAttribute="bottom" constant="12" id="Zqx-BV-Lk7"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="A8W-v2-41v" secondAttribute="trailing" constant="16" id="qBA-Pi-zny"/>
-                            <constraint firstItem="A8W-v2-41v" firstAttribute="leading" secondItem="0z2-wl-h6n" secondAttribute="trailing" constant="16" id="rKA-xN-t4d"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QMB-65-KXg" secondAttribute="trailing" constant="16" id="uxd-i9-uAx"/>
+                            <constraint firstItem="A8W-v2-41v" firstAttribute="leading" secondItem="0z2-wl-h6n" secondAttribute="trailing" constant="8" id="rKA-xN-t4d"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QMB-65-KXg" secondAttribute="trailing" constant="4" id="uxd-i9-uAx"/>
                             <constraint firstItem="A8W-v2-41v" firstAttribute="top" secondItem="vXI-gC-hCz" secondAttribute="top" constant="4" id="xU1-mm-Z7h"/>
                         </constraints>
                     </view>

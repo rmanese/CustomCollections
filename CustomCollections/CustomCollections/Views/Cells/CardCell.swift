@@ -20,7 +20,7 @@ class CardCell: UITableViewCell {
 
         selectionStyle = .none
 
-        collectionTitleLabel.adjustsFontSizeToFitWidth =    true
+        collectionTitleLabel.adjustsFontSizeToFitWidth = true
 
         mainView.layer.cornerRadius = 15
         mainView.layer.shadowColor = UIColor.black.cgColor

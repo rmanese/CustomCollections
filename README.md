@@ -1,6 +1,5 @@
 # Custom Collections
-
-Input Description
+Custom Collections presents collections and products in a list fetched from the shopicruit API.
 
 ## Technologies
 Swift, Auto Layout, URLSession

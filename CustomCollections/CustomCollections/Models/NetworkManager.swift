@@ -1,4 +1,3 @@
-//
 //  NetworkManager.swift
 //  CustomCollections
 //
@@ -11,13 +10,9 @@ import Foundation
 class NetworkManager {
 
     private let decoder = JSONDecoder()
-    private let hostName = "https://shopicruit.myshopify.com"
-    private let accessToken = "&access_token=c32313df0d0ef512ca64d5b336a0d7c6"
 
     func fetchCollections(completionHandler: @escaping (([CustomCollection]?, Error?) -> Void)) {
-        let path = "/admin/custom_collections.json?page=1"
-        let urlString = hostName+path+accessToken
-        if let url = URL(string: urlString) {
+        if let url = urlBuilder(query: "", path: "custom_collections.json?") {
             let task = URLSession.shared.dataTask(with: url) {
                 (data, response, error) in
                 if let data = data {
@@ -34,9 +29,7 @@ class NetworkManager {
     }
 
     func fetchCollects(id: Int, completionHandler: @escaping (([Collect]?, Error?) -> Void)) {
-        let path = "/admin/collects.json?collection_id=\(id)&page=1"
-        let urlString = hostName+path+accessToken
-        if let url = URL(string: urlString) {
+        if let url = urlBuilder(query: "collection_id=\(id)", path: "collects.json?") {
             let task = URLSession.shared.dataTask(with: url) {
                 (data, response, error) in
                 if let data = data {
@@ -53,9 +46,7 @@ class NetworkManager {
     }
 
     func fetchProducts(ids: String, completionHandler: @escaping (([Product]?, Error?) -> Void)) {
-        let path = "/admin/products.json?ids=\(ids)&page=1"
-        let urlString = hostName+path+accessToken
-        if let url = URL(string: urlString) {
+        if let url = urlBuilder(query: "ids=\(ids)", path: "products.json?") {
             let task = URLSession.shared.dataTask(with: url) {
                 (data, response, error) in
                 if let data = data {
@@ -71,4 +62,16 @@ class NetworkManager {
         }
     }
 
+    func urlBuilder(query: String, path: String) -> URL? {
+        var urlString = ""
+        let hostName = "https://shopicruit.myshopify.com/admin/"
+        let queryItems: [String] = ["page=1", "access_token=c32313df0d0ef512ca64d5b336a0d7c6"]
+        if query.isEmpty {
+            urlString = hostName+path+queryItems.joined(separator: "&")
+        } else {
+            urlString = hostName+path+queryItems.joined(separator: "&")+"&\(query)"
+        }
+        guard let url = URL(string: urlString) else { return nil }
+        return url
+    }
 }

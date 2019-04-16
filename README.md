@@ -5,7 +5,7 @@ Custom Collections presents collections and products in a list fetched from the 
 Swift, Auto Layout, URLSession
 
 ## Demo
-![gameplay](images/CustomCollection.gif)</br>
+![demo](images/CustomCollection.gif)</br>
 
 ## About Me
 Roberto Manese is an iOS Engineer in the Bay Area.
